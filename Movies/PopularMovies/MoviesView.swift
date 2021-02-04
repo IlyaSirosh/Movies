@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MoviesView: View {
     @State var selectedMovie: Int?
-    let cards: [Int] = (1...101).map { $0 }
+    let movies: [Int] = (1...101).map { $0 }
     
     let layout = [
         GridItem(), GridItem()
@@ -19,14 +19,14 @@ struct MoviesView: View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: layout) {
-                    ForEach(cards, id: \.self) { card in
+                    ForEach(movies, id: \.self) { movie in
                         ZStack {
                             MovieCard().onTapGesture {
-                                selectedMovie = card
+                                selectedMovie = movie
                             }
                         NavigationLink(
                             destination: MovieDetailView(),
-                            tag: card,
+                            tag: movie,
                             selection: $selectedMovie,
                             label: {EmptyView()})
                         }
