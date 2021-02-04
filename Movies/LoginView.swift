@@ -23,10 +23,13 @@ struct LoginView: View {
                 .padding()
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(20)
+                .keyboardType(.emailAddress)
+                .autocapitalization(.none)
               SecureField("Password", text: self.$password)
                 .padding()
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(20)
+                .textContentType(.password)
             }.padding(.horizontal, 27.5)
             Button(action: {}) {
               Text("Sign In")
@@ -40,8 +43,6 @@ struct LoginView: View {
             Spacer()
         }
     }
-    
-    private static let padding: CGFloat = 20
 }
 
 struct LoginView_Previews: PreviewProvider {
