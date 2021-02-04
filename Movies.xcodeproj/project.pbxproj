@@ -13,6 +13,9 @@
 		493995AD25CBFC790026B514 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 493995AC25CBFC790026B514 /* Preview Assets.xcassets */; };
 		493995B625CC01F30026B514 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493995B525CC01F30026B514 /* LoginView.swift */; };
 		493995BC25CC0F610026B514 /* Courgette-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 493995BB25CC0F610026B514 /* Courgette-Regular.ttf */; };
+		493995C025CC12940026B514 /* MoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493995BF25CC12940026B514 /* MoviesView.swift */; };
+		493995C425CC15C00026B514 /* MovieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493995C325CC15C00026B514 /* MovieCard.swift */; };
+		493995C825CC18830026B514 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493995C725CC18830026B514 /* MovieDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		493995AE25CBFC790026B514 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		493995B525CC01F30026B514 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		493995BB25CC0F610026B514 /* Courgette-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Courgette-Regular.ttf"; sourceTree = "<group>"; };
+		493995BF25CC12940026B514 /* MoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesView.swift; sourceTree = "<group>"; };
+		493995C325CC15C00026B514 /* MovieCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCard.swift; sourceTree = "<group>"; };
+		493995C725CC18830026B514 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,9 @@
 				493995AE25CBFC790026B514 /* Info.plist */,
 				493995AB25CBFC790026B514 /* Preview Content */,
 				493995B525CC01F30026B514 /* LoginView.swift */,
+				493995BF25CC12940026B514 /* MoviesView.swift */,
+				493995C325CC15C00026B514 /* MovieCard.swift */,
+				493995C725CC18830026B514 /* MovieDetailView.swift */,
 				493995B825CC0A000026B514 /* Fonts */,
 			);
 			path = Movies;
@@ -153,7 +162,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				493995C825CC18830026B514 /* MovieDetailView.swift in Sources */,
+				493995C425CC15C00026B514 /* MovieCard.swift in Sources */,
 				493995B625CC01F30026B514 /* LoginView.swift in Sources */,
+				493995C025CC12940026B514 /* MoviesView.swift in Sources */,
 				493995A825CBFC780026B514 /* ContentView.swift in Sources */,
 				493995A625CBFC780026B514 /* MoviesApp.swift in Sources */,
 			);
