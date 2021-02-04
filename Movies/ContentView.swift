@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var assembly: ViewAssembly
+    
     var body: some View {
-        MovieDetailView()
+        assembly.getMoviesView()
     }
 }
 

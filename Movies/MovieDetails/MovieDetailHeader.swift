@@ -9,7 +9,8 @@ import SwiftUI
 import URLImage
 
 struct MovieDetailHeader: View {
-    let movie: Movie
+    let movie: MoviePreview
+
     
     var body: some View {
         ZStack {
@@ -27,12 +28,10 @@ struct MovieDetailHeader: View {
                     Text(movie.title)
                         .lineLimit(2)
                         .font(.largeTitle)
-                    Text("Rating: \(String(format: "%.1f", movie.rating)) ")
-                        .font(.body)
                 }.background(
                     Color.gray
-                        .blur(radius: 10)
-                        .opacity(0.6)
+                        .blur(radius: 20)
+                        .opacity(0.4)
                 ).shadow(color: .black, radius: 10, x: 0, y: 2)
             }
 

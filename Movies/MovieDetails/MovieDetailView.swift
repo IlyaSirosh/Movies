@@ -9,51 +9,65 @@ import SwiftUI
 import URLImage
 
 struct MovieDetailView: View {
-    let movie: Movie
-
-    init() {
-        self.movie = Movie(id: 1,
-                           title: "Lord of the Rings: The Fellowship of the Ring",
-                           posterURL: URL(string: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT9J7XACn3tlD6v4UXRMvT2wJN8FGCCPeh8U3RkZ6__tR4wGhSo")!,
-                           genres: [ Movie.Genre(id: 1, name: "Fantasy"), Movie.Genre(id: 2, name: "Anvanture"), Movie.Genre(id: 2, name: "Anvanture2"), Movie.Genre(id: 2, name: "Anvanture3")],
-                           rating: 8.8,
-                           language: "English",
-                           duration: 228,
-                           overview: "A young hobbit, Frodo, who has found the One Ring that belongs to the Dark Lord Sauron, begins his journey with eight companions to Mount Doom, the only place where it can be destroyed.")
+    @ObservedObject var model: MovieDetailViewModel
+    
+    let preview: MoviePreview
+    
+    init(preview: MoviePreview, model: MovieDetailViewModel) {
+        self.preview = preview
+        self.model = model
     }
     
     var body: some View {
         GeometryReader { geometry in
             body(for: geometry.size)
+        }.onAppear {
+            model.loadMovieDetails(for: preview)
         }
     }
     
     func body(for size: CGSize) -> some View {
         ScrollView {
             VStack {
-
-                MovieDetailHeader(movie: movie)
+                MovieDetailHeader(movie: preview)
                     .frame(height: size.height * 0.5)
                     .padding(.bottom)
-
-                VStack {
-                    AboutMovieView(movie: movie)
-                    
-                    if let overview = movie.overview {
-                        DescriptionView(title: "Overview") {
-                            ReadMoreText(overview)
-                        }
-                    }
-                }.padding()
                 
-            }.frame(width: size.width)
+              
+                Group {
+                    switch model.state {
+                    case .present(let movie):
+                        VStack(alignment: .leading, spacing: 20) {
+                            
+                            Text("Rate: \(String(format: "%.1f", movie.rating)) ")
+                                .font(.body)
+                            
+                            AboutMovieView(movie: movie)
+                            
+                            if let overview = movie.overview {
+                                DescriptionView(title: "Overview") {
+                                    ReadMoreText(overview)
+                                }
+                            }
+                        }.padding()
+                    case .loading:
+                        ProgressView()
+                            .padding(size.height * 0.2)
+                    case .empty:
+                        Text("We are missing details")
+                            .foregroundColor(Color.gray.opacity(0.8))
+                            .frame(width: size.width, height: size.height * 0.4, alignment: .center)
+                    }
+                }
+   
+            }.frame(maxWidth: .infinity, maxHeight: .infinity)
             
         }
     }
 }
 
-struct MovieDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        MovieDetailView()
-    }
-}
+//struct MovieDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MovieDetailView()
+//    }
+//}
