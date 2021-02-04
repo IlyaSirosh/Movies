@@ -11,6 +11,8 @@
 		493995A825CBFC780026B514 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493995A725CBFC780026B514 /* ContentView.swift */; };
 		493995AA25CBFC790026B514 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 493995A925CBFC790026B514 /* Assets.xcassets */; };
 		493995AD25CBFC790026B514 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 493995AC25CBFC790026B514 /* Preview Assets.xcassets */; };
+		493995B625CC01F30026B514 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493995B525CC01F30026B514 /* LoginView.swift */; };
+		493995BC25CC0F610026B514 /* Courgette-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 493995BB25CC0F610026B514 /* Courgette-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		493995A925CBFC790026B514 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		493995AC25CBFC790026B514 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		493995AE25CBFC790026B514 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		493995B525CC01F30026B514 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		493995BB25CC0F610026B514 /* Courgette-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Courgette-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 				493995A925CBFC790026B514 /* Assets.xcassets */,
 				493995AE25CBFC790026B514 /* Info.plist */,
 				493995AB25CBFC790026B514 /* Preview Content */,
+				493995B525CC01F30026B514 /* LoginView.swift */,
+				493995B825CC0A000026B514 /* Fonts */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -67,6 +73,14 @@
 				493995AC25CBFC790026B514 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		493995B825CC0A000026B514 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				493995BB25CC0F610026B514 /* Courgette-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +140,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				493995BC25CC0F610026B514 /* Courgette-Regular.ttf in Resources */,
 				493995AD25CBFC790026B514 /* Preview Assets.xcassets in Resources */,
 				493995AA25CBFC790026B514 /* Assets.xcassets in Resources */,
 			);
@@ -138,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				493995B625CC01F30026B514 /* LoginView.swift in Sources */,
 				493995A825CBFC780026B514 /* ContentView.swift in Sources */,
 				493995A625CBFC780026B514 /* MoviesApp.swift in Sources */,
 			);
