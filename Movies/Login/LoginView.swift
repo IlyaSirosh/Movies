@@ -30,12 +30,10 @@ struct LoginView: View {
                 .font(.custom("Courgette-Regular", size: 96, relativeTo: .largeTitle))
             Spacer()
             VStack(alignment: .leading, spacing: 15) {
-              TextField("Email", text: self.$email)
+              TextField("Username", text: self.$email)
                 .padding()
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(20)
-                .keyboardType(.emailAddress)
-                .autocapitalization(.none)
               SecureField("Password", text: self.$password)
                 .padding()
                 .background(Color.gray.opacity(0.2))
