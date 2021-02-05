@@ -9,9 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var assembly: ViewAssembly
+    @EnvironmentObject var authService: AuthService
     
     var body: some View {
-        assembly.getMoviesView()
+        if authService.isAuthorized {
+            assembly.getMoviesView()
+        } else {
+            assembly.getLoginView()
+        }
     }
 }
 

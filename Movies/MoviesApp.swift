@@ -9,11 +9,20 @@ import SwiftUI
 
 @main
 struct MoviesApp: App {
+    let viewAssembly: ViewAssembly
+    let authService: AuthService
+    
+    init() {
+        self.viewAssembly = ViewAssembly()
+        self.authService = viewAssembly.authService
+        self.authService.getNewRequestToken()
+    }
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(ViewAssembly())
+                .environmentObject(authService)
+                .environmentObject(viewAssembly)
         }
     }
 }
