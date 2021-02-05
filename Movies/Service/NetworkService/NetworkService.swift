@@ -12,7 +12,7 @@ class NetworkService {
     private var apiURL = "https://api.themoviedb.org/3"
     private(set) var requestToken: String?
     private(set) var apiKey: String = "3a00a4055c806e2ed9a47646e6f8a7f9"
-    
+    private(set) var imageBaseURL = "https://image.tmdb.org/t/p/w500"
     
     func urlString(for path: String) -> String {
         "\(apiURL)/\(path)?api_key=\(apiKey)"
@@ -21,29 +21,22 @@ class NetworkService {
     func setRequestToken(_ token: String?){
         requestToken = token
     }
-    
-    enum RequestError: Error, CustomStringConvertible {
-        case NoRequestToken, CannotDecodeAuthResult, WrongSignInData(String), InvalidRequestToken(String)
-        
-        var description: String {
-            switch self {
-            case .NoRequestToken:
-                return "No Request Token available"
-            case .CannotDecodeAuthResult:
-                return "Unable to decode auth result"
-            case .WrongSignInData(let reason):
-                return "Wrong sign in data: \(reason)"
-            case .InvalidRequestToken(let reason):
-                return "Invalid request token: \(reason)"
-            default:
-                return "Some Request Error"
-            }
-        }
-    }
+
 }
 
-extension LocalizedError where Self: CustomStringConvertible {
+enum RequestError: Error {
+    case NoRequestToken, CannotDecodeAuthResult, WrongSignInData(String), InvalidRequestToken(String)
+    
     var localizedDescription: String? {
-        description
+        switch self {
+        case .NoRequestToken:
+            return "No Request Token available"
+        case .CannotDecodeAuthResult:
+            return "Unable to decode auth result"
+        case .WrongSignInData(let reason):
+            return reason
+        case .InvalidRequestToken(let reason):
+            return reason
+        }
     }
 }

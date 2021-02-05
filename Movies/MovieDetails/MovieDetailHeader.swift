@@ -14,6 +14,7 @@ struct MovieDetailHeader: View {
     
     var body: some View {
         ZStack {
+
             URLImage(url: movie.posterURL) { (image: Image) in
                 return image
                     .resizable()
@@ -21,18 +22,18 @@ struct MovieDetailHeader: View {
                     .clipped()
                     .shadow(color: Color.black.opacity(0.8), radius: 15, x: 0, y: 10)
             }
-  
             VStack(alignment: .leading) {
                 Spacer()
                 VStack(alignment: .leading){
                     Text(movie.title)
                         .lineLimit(2)
                         .font(.largeTitle)
+                        .padding(.horizontal)
                 }.background(
-                    Color.gray
-                        .blur(radius: 20)
+                    Color.black
+                        .blur(radius: 15)
                         .opacity(0.4)
-                ).shadow(color: .black, radius: 10, x: 0, y: 2)
+                ).shadow(color: .black, radius: 10, x: 0, y: 5)
             }
 
             .frame(maxWidth: .infinity)

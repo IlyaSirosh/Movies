@@ -10,8 +10,18 @@ import UIKit
 
 struct LoginView: View {
     @ObservedObject var model: LoginViewModel
-    @State private var email = "TestYouAreLaunched"
-    @State private var password = "12345"
+    @State private var email = "TestYouAreLaunched" {
+        didSet {
+            error = nil
+        }
+    }
+    @State private var password = "12345" {
+        didSet {
+            error = nil
+        }
+    }
+    @State private var error: String?
+
     
     var body: some View {
         VStack {
@@ -31,10 +41,15 @@ struct LoginView: View {
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(20)
                 .textContentType(.password)
-            }.padding(.horizontal, 27.5)
+            }
+            .padding(.horizontal, 27.5)
+            .padding(.vertical, 15)
             Text(errorText)
+                .frame(minHeight: 20)
                 .font(.caption)
+                .lineLimit(2)
                 .foregroundColor(.red)
+                .padding(.horizontal, 27.5)
             Button(action: {
                 model.signIn(username: email, password: password)
             }) {
@@ -57,7 +72,7 @@ struct LoginView: View {
                 }
             )
             .disabled(model.state == .signing)
-            .padding(.vertical, 30)
+            .padding(.vertical, 10)
             Spacer()
         }
     }
@@ -65,8 +80,6 @@ struct LoginView: View {
     
     var errorText: String {
         switch model.state {
-        case .notSigned:
-            return "not signed"
         case .failToSign(let reason):
             return "\(reason)"
         default:

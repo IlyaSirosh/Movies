@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MoviePreview: Identifiable {
+struct MoviePreview: Identifiable, Codable {
     let id: Int
     let title: String
     let posterURL: URL

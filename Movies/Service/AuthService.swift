@@ -37,9 +37,8 @@ class AuthService: ObservableObject {
             switch result {
             case .success(let isSigned):
                 self.state = isSigned ? .signed : .failToSign("Cannot sign in with username/password")
-            case .failure(let error):
-                self.state = .failToSign(error.localizedDescription)
-                print(error)
+            case .failure(_):
+                self.state = .failToSign("Cannot sign in with username/password")
             }
         }
     }
@@ -50,8 +49,8 @@ class AuthService: ObservableObject {
                 switch result {
                 case .success(let tokenCreated):
                     self.state = tokenCreated ? .notSigned : .failToSign("Cannot create request token")
-                case .failure(let error):
-                    self.state = .failToSign(error.localizedDescription)
+                case .failure(_):
+                    self.state = .failToSign("Cannot create request token")
                 }
             }
         }
